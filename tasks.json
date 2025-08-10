@@ -2,11 +2,31 @@
     {
         "name": "dishes",
         "id": 1,
-        "status": "to-do"
+        "status": "done"
     },
     {
         "name": "dishes",
         "id": 2,
+        "status": "to-do"
+    },
+    {
+        "name": "dishes",
+        "id": 3,
+        "status": "to-do"
+    },
+    {
+        "name": "chores",
+        "id": 4,
+        "status": "to-do"
+    },
+    {
+        "name": "homework",
+        "id": 5,
+        "status": "in-progress"
+    },
+    {
+        "name": "laundry",
+        "id": 6,
         "status": "to-do"
     }
 ]

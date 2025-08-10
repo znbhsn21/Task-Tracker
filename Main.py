@@ -90,7 +90,7 @@ def list_done(file_path):
         except json.JSONDecodeError:
             tasks = []
     done_tasks = [task for task in tasks if task["status"] == "done"]
-    print(f'Here is the list of completed tasks:\n')
+    print(f'\nHere is the list of completed tasks:\n')
     for task in done_tasks:
         print(task)   
         print()    
@@ -104,7 +104,7 @@ def list_ongoing(file_path):
         except json.JSONDecodeError:
             tasks = []
     done_tasks = [task for task in tasks if task["status"] == "in-progress"]
-    print(f'Here is the list of ongoing tasks:\n')
+    print(f'\nHere is the list of ongoing tasks:\n')
     for task in done_tasks:
         print(task)   
         print()    
@@ -118,8 +118,21 @@ def list_incomplete(file_path):
         except json.JSONDecodeError:
             tasks = []
     done_tasks = [task for task in tasks if task["status"] == "to-do"]
-    print(f'Here is the list of incomplete tasks:\n')
+    print(f'\nHere is the list of incomplete tasks:\n')
     for task in done_tasks:
+        print(task)   
+        print()
+
+def list_all(file_path):
+    with open(file_path , "r") as f:
+        try:
+            tasks = json.load(f)
+            if isinstance(tasks, dict):
+                tasks = [tasks]
+        except json.JSONDecodeError:
+            tasks = []
+    print(f'\nHere is the list of all tasks:\n')
+    for task in tasks:
         print(task)   
         print()
 
@@ -150,6 +163,8 @@ while True:
         list_ongoing(file_path)
     elif("list incomplete" in task):
         list_incomplete(file_path)
+    elif("list all" in task):
+        list_all(file_path)
     elif ("exit" in task):
         print("\nExiting Task Tracker...")
         break
